@@ -51,7 +51,7 @@ $.extend(shineBar, {
     this.frame.show().attr('src', chrome.extension.getURL(url));
     window.setTimeout($.proxy(function() {
       this.frame.height(this.frame.height()+1);
-    }, this), 10);
+    }, this), 100);
   },
 
   display: function(info, loggedIn) {

@@ -41,7 +41,10 @@ function thingClicked() {
 
 $(document).ready(function() {
   console.log('Shine reddit content handler running.');
-	$('.thing a.title').click(thingClicked);
-  var modhash = $('script').first().text().match(/modhash:\s*'(\w*)'/)[1];
-  chrome.extension.sendRequest({action:'modhashUpdate', modhash:modhash});
+  $('.thing a.title').click(thingClicked);
+  var re = $('script').first().text().match(/modhash:\s*'(\w*)'/);
+  if (re) {
+    var modhash = re[1];
+    chrome.extension.sendRequest({action:'modhashUpdate', modhash:modhash});
+  }
 });
